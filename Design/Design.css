@@ -10,33 +10,36 @@
 }
 
 body {
-    background-color: #857a7a;
+  background-color: #857a7a;
   color: var(--text-color);
   font-family: 'Orbitron', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  
 }
-
 
 header {
   background: rgba(3, 6, 16, 0.9);
   border-bottom: 1px solid var(--primary-color);
   box-shadow: var(--glow);
+  position: fixed;
+   height: auto; 
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
   position: relative;
   z-index: 1000;
-  margin: 0;
-  padding: 0;
   max-height: 80.8px;
-  overflow: hidden;
-  
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; 
   flex-wrap: wrap;
   position: relative;
 }
@@ -50,14 +53,10 @@ nav {
 #logo-image {
   width: 30px;
   height: auto;
-  border-radius: 0; 
-  border: none;     
-  margin-top: 0;    
-  
-    
+  border-radius: 0;
+  border: none;
+  margin-top: 0;
 }
-  
-
 
 .logo-text {
   font-size: 30px;
@@ -109,6 +108,7 @@ nav a.active {
   text-shadow: var(--glow);
 }
 
+/* THIS IS FOR MY RESPONSIVE NAV */
 @media (max-width: 800px) {
   .burger {
     display: block;
@@ -135,113 +135,105 @@ nav a.active {
     border-top: 1px solid var(--accent-color);
   }
 }
-  h1, h2, h3 {
-    font-family: "Orbitron", sans-serif;
-    color: #0ff;
-    text-transform: uppercase;
-    text-shadow: var(--glow);
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-   margin-top: 2rem;
-    text-shadow: var(--glow);
-  }
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  main {
-    padding: 2rem 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  
-  section {
-    background-color: rgba(5, 10, 20, 0.8);
-    padding: 2rem;
-    border: 1px solid #0ff;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  section:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-  }
-  
-  
-  p {
-    margin-bottom: 1rem;
-  }
-  
-  img {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    margin-top: 1rem;
-    border-radius: 12px;
-    border: 1px solid #0ff;
-    
-  }
-  
 
-  
-  
-  ul {
-    padding-left: 1.2rem;
-  }
-  
-  ul li {
-    margin-bottom: 2.5rem;
-  }
-  
-  ul li strong {
-    display: block;
-    margin-bottom: 0.6rem;
-    font-family: "Orbitron", sans-serif;
-    color: #f1b2b5;
-  }
-  
-  
+h1, h2, h3 {
+  font-family: "Orbitron", sans-serif;
+  color: #0ff;
+  text-transform: uppercase;
+  text-shadow: var(--glow);
+}
+
+h1 {
+  font-size: 2rem; /* Adjusted font size to match other pages */
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  text-shadow: var(--glow);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+main {
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  background-color: rgba(5, 10, 20, 0.8);
+  padding: 2rem;
+  border: 1px solid #0ff;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
+  border: 1px solid #0ff;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+ul li {
+  margin-bottom: 2.5rem;
+}
+
+ul li strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: "Orbitron", sans-serif;
+  color: #f1b2b5;
+}
+
 footer {
-    padding: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    background-color: #000;
-    color: #888;
-    border-top: 1px solid var(--primary-color);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #000;
+  color: #888;
+  border-top: 1px solid var(--primary-color);
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 6px var(--primary-color);
   }
-  
-  
-  @keyframes glow-pulse {
-    0% {
-      box-shadow: 0 0 6px var(--primary-color);
-    }
-    50% {
-      box-shadow: 0 0 12px var(--primary-color);
-    }
-    100% {
-      box-shadow: 0 0 6px var(--primary-color);
-    }
+  50% {
+    box-shadow: 0 0 12px var(--primary-color);
   }
-  
-  nav a:hover,
-  aside a:hover {
-    animation: glow-pulse 1.5s infinite;
+  100% {
+    box-shadow: 0 0 6px var(--primary-color);
   }
-  
+}
+
+nav a:hover,
+aside a:hover {
+  animation: glow-pulse 1.5s infinite;
+}
