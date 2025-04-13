@@ -50,6 +50,9 @@ nav {
   width: 30px;
   height: auto;
   
+  border-radius: 0;
+  border: none;
+
 }
 
 .logo-text {
