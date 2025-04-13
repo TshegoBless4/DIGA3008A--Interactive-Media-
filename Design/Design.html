@@ -4,115 +4,183 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Design Process</title>
+    <link rel="stylesheet" href="normalize.css" />
+
+    <link rel="stylesheet" href="design.css" />
+
+    <script
+      src="https://kit.fontawesome.com/76fff40ec6.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
   </head>
+
   <body>
     <header>
       <nav>
-        <ul role="navigation">
-          <li role="link"><a href="../index.html">Homepage</a></li>
-          <li role="link"><a href="../BlogPages/blogMain.html">Blogs</a></li>
-          <li>Design</li>
-          <li role="link">
-            <a href="../Porfolio/Portfolio.html">Portfolio</a>
-          </li>
-          <li role="link"><a href="../Essay/Essay.html">Essay</a></li>
+
+
+        <div class="logo-container">
+          <img src="../Logo/logo.png" id="logo-image" />
+
+          <span class="logo-text">SHEGO.M</span>
+        </div>
+
+        <input type="checkbox" name="" id="check" />
+        <label for="check" class="burger button"
+          ><i class="fa-solid fa-bars"></i
+        ></label>
+
+        <ul>
+          <li><a href="../index.html">Homepage</a></li>
+
+          <li><a href="../BlogPages/blogMain.html">Blogs</a></li>
+          <li><a href="../Design/Design.html" class="active">Design</a></li>
+          <li><a href="../Porfolio/Portfolio.html">Portfolio</a></li>
+          <li><a href="../Essay/Essay.html">Essay</a></li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <h1>Design</h1>
-      <p>
-        My goal for this website is to showcase my work such as presenting my
-        game design, and my projects. I want this website to also demonstrate my
-        process such as highlighting my design thinking, from wireframes and
-        sketches to colour palettes. This website should also document my
-        learning and growth as its reflected in my blogs where I highlighted the
-        Challenges and my insights.
-      </p>
+      <h1>Design Process</h1>
 
-      <h2>wireframes</h2>
-      <li>Homepage</li>
-      <p>
-        On the top of the page will be the navagiation bar where users will be
-        able to access the different pages. Below the navigation will be a
-        welcome text following by a brief intro of myself accompanied by a
-        picture. I will also place my contact details on my homepage, either on
-        the footer or main section of the page (the bottom).
-      </p>
-      <p>
-        My second idea was that the page navigation bar will be accessed both at
-        the top of the page and and the bottom of the page. However, at the
-        bottom will be pictures or icons representing different folders.
-      </p>
-      <img
-        src="../Pictures/Homepage.png"
-        alt="This is a picure of a Homepage wireframes"
-        width="400"
-        height="250"
-      />
+      <section>
+        <h2>Goal Alignment</h2>
+        <p>
+          The goal for this website is to curate a space that reflects who I am
+          as a digital artist and designer. The theme I am aiming for is a
+          ‘futuristic technology’ aesthetic that offers a sleek and appealing
+          look. This website highlights my design process and is intended for
+          potential collaborators or those interested in engaging with my work
+          in a clean, tech-forward space.
+        </p>
 
-      <li>Blog Page</li>
-      <img
-        src="../Pictures/BlogPage.png"
-        alt="This is a picture of a Blog page wireframe"
-        width="400"
-        height="250"
-      />
+        <h2>Style Guide</h2>
 
-      <li>Portfolio Page</li>
-      <p>
-        The page will open to a navigation bar at the top right of the page. I
-        plan on showcasing drawings and games \ so it will be a combination of
-        different pictures that represents that particular portfolio
-      </p>
-      <p>
-        Another idea is a page showing two different kinds of portfolio. So on
-        part will be showing only drawings and the other part will be showing
-        only games
-      </p>
-      <img
-        src="../Pictures/Portfolio Page.png"
-        alt="This is a picture of a Portfolio wireframe"
-        width="400"
-        height="250"
-      />
+        <h3>Visual Aesthetic</h3>
+        <p>
+          The aesthetic combines the clean simplicity of minimalism with
+          futuristic, sci-fi elements. Visually, it should have clean lines,
+          subtle gradients or glows, and lots of space to breathe. Think: sleek,
+          cyber-cool, and modern.
+        </p>
 
-      <li>Design Page</li>
-      <img
-        src="../Pictures/Design Page.png"
-        alt="This is a picture of a Design wireframe"
-        width="400"
-        height="250"
-      />
+        <h3>Colour Palette</h3>
+        <p>
+          I chose a palette that aligns with the sci-fi theme, using a dark
+          background with light, glowing accents to create a holographic effect.
+          These contrasting tones enhance readability while highlighting key
+          elements like titles.
+        </p>
+        <img
+          src="../Images/colour.png"
+          alt="Color palette image showing HEX: #0ff, #030610, #f0f0f0, #f1b2b5"
+        />
 
-      <h3>User flow</h3>
-      <img
-        src="../Pictures/updated_website_structure.png"
-        alt="This is a oicture of a flowchart"
-        width="1000"
-        height="400"
-      />
+        <h3>Fonts</h3>
+        <p>
+          For a sleek, futuristic look, I’m using Orbitron for headings and
+          Roboto for body text. Orbitron gives a techy feel, while Roboto
+          supports clean readability.
+        </p>
+        <img
+          src="../Images/Screenshot (92).png"
+          alt="Screenshot displaying Orbitron font in a sentence"
+        />
+      </section>
 
-      <h4>Style Guide</h4>
-      <p>
-        This style guide contains style and components used through the website
-      </p>
+      <section>
+        <h2>Information Structure</h2>
+        <img
+          src="../Images/Information structure diagram.png"
+          alt="Diagram showing the structure of the website's content flow"
+        />
+      </section>
 
-      <h5>Typography</h5>
-      <p>The different text sizes used throughout the site</p>
-      <img
-        src="../Pictures/typography.png"
-        alt="This is a picture of typography showing different sizes"
-        width="400"
-        height="250"
-      />
+      <section>
+        <h3>User Flow</h3>
+        <p>This is a basic user flow of this website.</p>
+        <img
+          src="../Images/updated_website_structure.png"
+          alt="User flow diagram showing website navigation flow"
+        />
+      </section>
 
-      <h5>Colours</h5>
-      <p>Colours used throughout the website</p>
-      <img
-        src="../Pictures/colour palette.png"
-        alt="This is an image of a colour palette"
-      />
+      <section>
+        <h2>Wireframes</h2>
+        <ul>
+          <li>
+            <strong>Homepage</strong>
+            <p>
+              The top of the page includes a navigation bar for easy access to
+              different sections. Below it is a welcome text and a brief intro
+              about me, followed by a photo. Contact details will be placed at
+              the footer or near the bottom of the main section.
+            </p>
+            <p>
+              Another idea is to also have quick access icons at the bottom, in
+              addition to the top nav bar.
+            </p>
+            <img
+              src="../Images/Homepage annotated wireframe.png"
+              alt="Wireframe of the homepage showing navigation, intro, and contact sections"
+            />
+          </li>
+
+          <li>
+            <strong>Blog Page</strong>
+            <p>
+              This wireframe represents the layout for the blog page. It
+              includes space for post previews, images, and possibly filters or
+              categories to explore blog topics.
+            </p>
+            <img
+              src="../Images/Blog page wireframe annotated.png"
+              alt="Wireframe of the blog page layout"
+              width="400"
+              height="250"
+            />
+          </li>
+
+          <li>
+            <strong>Portfolio Page</strong>
+            <p>
+              The navigation bar will be at the top right. This page will
+              showcase both my artwork and games, using images to represent each
+              category.
+            </p>
+            <p>
+              Alternatively, it may be split into two sections—one for drawings
+              and another for games.
+            </p>
+            <img
+              src="../Images/Portfolio Page wireframe.png"
+              alt="Portfolio page wireframe showing sections for drawings and games"
+              width="400"
+              height="250"
+            />
+          </li>
+
+          <li>
+            <strong>Design Page</strong>
+            <p>
+              This wireframe outlines the design page, which highlights my
+              design process including goal alignment, color palette, font
+              choices, and wireframes.
+            </p>
+            <img
+              src="../Images/Design wireframe annotated.png"
+              alt="Wireframe of the design page showing sections for design process"
+              width="400"
+              height="250"
+            />
+          </li>
+        </ul>
+      </section>
     </main>
+    <footer>contact details: tshegofatsomokone316@gmail.com</footer>
   </body>
 </html>

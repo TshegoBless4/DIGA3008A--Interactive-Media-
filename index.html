@@ -4,31 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
+    <link rel="stylesheet" href="normalize.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://kit.fontawesome.com/76fff40ec6.js" crossorigin="anonymous"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+      </style>
+   
+    
   </head>
   <body>
     <header>
       <nav>
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="burger button"><i class="fa-solid fa-bars"></i></label>
+
+        <div class="logo-container">
+          <img src="/Logo/logo.png" alt="Logo" id="logo-img">
+          <span class="logo-text">SHEGO.M</span>
+        </div>
+        
+    
+         
         <ul role="navigation">
-            <li>Homepage</li>
-          <!-- <li role="link"><a href="index.html">Homepage</a></li> -->
-          <li role="link"><a href="BlogPages/blogMain.html">Blogs</a></li>
-          <li role="link"><a href="Design/Design.html">Design </a></li>
-          <li role="link"><a href="Porfolio/Portfolio.html">Portfolio</a></li>
-          <li role="link"><a href="Essay/Essay.html">Essay</a></li>
+            <!--<li>Homepage </li> -->
+          <li><a href="index.html" class="active">Homepage</a></li> 
+          <li><a href="BlogPages/blogMain.html">Blogs</a></li>
+          <li><a href="Design/Design.html">Design </a></li>
+          <li><a href="Porfolio/Portfolio.html">Portfolio</a></li>
+          <li><a href="Essay/Essay.html">Essay</a></li>
         </ul>
       </nav>
     </header>
+
     <main>
+      <section class="intro-container">
       <h1>Welcome to my page</h1>
       <p>Hello there, my name is Tshegofatso Mokone and I am a Game Design and Interactive Media student. 
         My favourite thing is candy and this is my portfolio website where I will be showcasing my journey and work. </p>
       <img
-        src="josh-hild-wqvA56yiz04-unsplash.jpg"
-        alt="There is a picture here"
-        aria-label="This is an image of skyscrapper"
+        src="../Images/josh-hild-wqvA56yiz04-unsplash.jpg"
+        alt="There is a picture of cars moving on the road with skyscrapper in the far background. "
+       class="intro-image"
         width="360"
         height="241"
       />
+    </section>
     </main>
   </body>
   <footer>contact details: tshegofatsomokone316@gmail.com</footer>
