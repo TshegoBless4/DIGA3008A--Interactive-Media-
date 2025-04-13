@@ -18,6 +18,12 @@ body {
   line-height: 1.6;
 }
 
+.blog-page {
+  background-color: #857a7a;
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+}
+
 /* HEADER + NAVIGATION (same as homepage for consistency) */
 header {
   background: rgba(3, 6, 16, 0.9);
