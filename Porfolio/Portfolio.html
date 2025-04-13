@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=1, initial-scale=1.0" />
     <title>My portfolio</title>
     
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="Portfolio.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+    <script src="https://kit.fontawesome.com/76fff40ec6.js" crossorigin="anonymous"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+      </style>
 
       
     />
@@ -19,11 +19,25 @@
   <body>
     <header>
       <nav>
-        <ul role="navigation">
+
+
+        <div class="logo-container">
+          <img src="../Logo/logo.png" id="logo-image" />
+
+          <span class="logo-text">SHEGO.M</span>
+        </div>
+
+        <input type="checkbox" name="" id="check" />
+        <label for="check" class="burger button"
+          ><i class="fa-solid fa-bars"></i
+        ></label>
+
+        <ul>
           <li><a href="../index.html">Homepage</a></li>
+
           <li><a href="../BlogPages/blogMain.html">Blogs</a></li>
-          <li><a href="../Design/Design.html">Design </a></li>
-          <li>Portfolio</li>
+          <li><a href="../Design/Design.html" >Design</a></li>
+          <li><a href="../Porfolio/Portfolio.html" class="active">Portfolio</a></li>
           <li><a href="../Essay/Essay.html">Essay</a></li>
         </ul>
       </nav>
@@ -31,6 +45,7 @@
     <main>
       <h1>Portfolio</h1>
     </main>
+    <footer>contact details: tshegofatsomokone316@gmail.com</footer>
   </body>
   
 </html>
