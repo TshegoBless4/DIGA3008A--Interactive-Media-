@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
 
 :root {
   --primary-color: #0ff;
   --background-color: #030610;
   --text-color: #f0f0f0;
   --accent-color: #f1b2b5;
-  --glow: 0 0 8px hwb(180 0% 0% / 0.702);
+  --glow: 0 0 8px hwb(180 0% 0% / 0.7);
   scroll-behavior: smooth;
 }
 
@@ -18,7 +18,7 @@ body {
   line-height: 1.6;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* HEADER */
 header {
   background: rgba(3, 6, 16, 0.9);
   border-bottom: 1px solid var(--primary-color);
@@ -30,7 +30,6 @@ header {
   width: 100%;
   z-index: 999;
   max-height: 80.8px;
-  overflow: hidden;
 }
 
 nav {
@@ -38,17 +37,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  flex-wrap: wrap;
   position: relative;
 }
 
-/* ===== LOGO ===== */
 .logo-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-#logo-image {
+#logo-img {
   width: 30px;
   height: auto;
 }
@@ -61,7 +60,6 @@ nav {
   font-weight: 600;
 }
 
-/* ===== BURGER MENU ===== */
 .burger {
   display: none;
   font-size: 28px;
@@ -78,7 +76,6 @@ nav {
   display: none;
 }
 
-/* ===== NAV LINKS ===== */
 nav ul {
   display: flex;
   list-style: none;
@@ -98,15 +95,20 @@ nav a {
   border-bottom: 2px solid transparent;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover {
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   text-shadow: var(--glow);
   animation: glow-pulse 1.5s infinite;
 }
 
-/* ===== MOBILE MENU LEFT SLIDE ===== */
+nav a.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  text-shadow: var(--glow);
+}
+
+/* BURGER MENU RESPONSIVE */
 @media (max-width: 800px) {
   .burger {
     display: block;
@@ -115,28 +117,26 @@ nav a.active {
   nav ul {
     flex-direction: column;
     position: absolute;
-    top: 80px;
-    left: -100%;
-    width: 60%;
-    height: 100vh;
+    top: 100%;
+    left: 0;
+    width: 100%;
     background-color: rgba(3, 6, 16, 0.95);
-    padding: 2rem 1rem;
-    transition: left 0.3s ease-in-out;
-    display: flex;
+    display: none;
+    padding: 1rem 0;
   }
 
   #check:checked ~ ul {
-    left: 0;
+    display: flex;
   }
 
   nav ul li {
-    text-align: left;
+    text-align: center;
     padding: 1rem 0;
     border-top: 1px solid var(--accent-color);
   }
 }
 
-/* ===== MAIN CONTENT ===== */
+
 main {
   padding: 6rem 2rem 2rem 2rem;
 }
@@ -149,7 +149,7 @@ h1 {
   color: var(--primary-color);
 }
 
-/* ===== FOOTER ===== */
+
 footer {
   padding: 1rem;
   text-align: center;
@@ -159,7 +159,7 @@ footer {
   border-top: 1px solid var(--primary-color);
 }
 
-/* ===== GLOW ANIMATION ===== */
+/* GLOW ANIMATION */
 @keyframes glow-pulse {
   0% {
     box-shadow: 0 0 6px var(--primary-color);
