@@ -131,6 +131,8 @@ main {
   padding: 2rem;
 }
 
+
+
 section {
   display: flex;
   justify-content: space-between;
@@ -210,6 +212,33 @@ article p {
 article a {
     color: var(--accent-color);
     text-decoration: underline;}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1b2b5; /* Your button color */
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #f5c5c5; /* Hover color */
+  transform: scale(1.1);
+}
+
+/* Show button when scrolled down */
+.show {
+  display: block;
+}
+
 
 /* FOOTER */
 footer {
