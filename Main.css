@@ -1,0 +1,343 @@
+
+:root {
+  --primary-color: #0ff; 
+  --background-color: #030610;
+  --text-color: #f0f0f0;
+  --accent-color: #f1b2b5;
+  --glow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+
+body {
+ /*background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3llbnRiMXJwcDZsMDhrMGR2ajJwdzl1Y21nZWxkZTNpbmNja3FnbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U4FkC2VqpeNRHjTDQ5/giphy.gif);*/
+ background-size: cover;
+ background-position: center;
+  background-color: #857a7a; 
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.6;
+}
+
+
+header {
+  background: rgba(3, 6, 16, 0.9);
+  border-bottom: 1px solid var(--primary-color);
+  box-shadow: var(--glow);
+  height: auto;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#logo-img {
+  width: 30px;
+  height: auto;
+  
+  border-radius: 0;
+  border: none;
+
+}
+
+.logo-text {
+  font-size: 30px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-shadow: var(--glow);
+  font-weight: 600;
+}
+
+
+.burger {
+  display: none;
+  font-size: 28px;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 1001;
+  
+}
+
+.fa-solid {
+  color: var(--primary-color);
+
+}
+
+#check {
+  display: none;
+}
+
+/* Universal.css additions */
+h1, h2, h3 {
+  font-family: "Orbitron", sans-serif;
+  color: var(--primary-color);
+  
+  text-shadow: var(--glow);
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+
+
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  text-shadow: var(--glow);
+}
+
+/* THIS IS FOR MY RESPONSIVE NAV */
+@media (max-width: 800px) {
+  .burger {
+    display: block;
+    
+  }
+
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(3, 6, 16, 0.8);
+    display: none;
+    padding: 1rem 0;
+    
+  }
+
+  #check:checked ~ ul {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid var(--accent-color);
+  }
+}
+
+
+
+
+
+
+
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #000;
+  color: #888;
+  border-top: 1px solid var(--primary-color);
+}
+
+
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 6px var(--primary-color);
+  }
+  50% {
+    box-shadow: 0 0 12px var(--primary-color);
+  }
+  100% {
+    box-shadow: 0 0 6px var(--primary-color);
+  }
+}
+
+nav a:hover,
+.intro-image:hover {
+  animation: glow-pulse 1.5s infinite;
+}
+
+
+
+/* ===== Footer ===== */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: 
+    /* Base grid (faint lines) */
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    /* Glowing horizontal lines (initially hidden) */
+    linear-gradient(transparent 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridScroll 40s linear infinite;
+}
+
+/* Keyframes for heartbeat effect */
+@keyframes heartbeat {
+  0%, 100% { opacity: 0; }
+  10%, 80% { opacity: 1; }
+}
+
+.grid-pulse {
+  position: fixed;
+  left: var(--x-pos, 0);
+  top: var(--y-pos, 0);
+  width: var(--pulse-size, 16px);
+  height: var(--pulse-size, 16px);
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px var(--primary-color));
+  transform: translate(-50%, -50%);
+  animation: intersectionPulse var(--pulse-duration, 3s) ease var(--pulse-delay, 0s) infinite;
+}
+
+@keyframes intersectionPulse {
+  0%, 100% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  15%, 85% { 
+    opacity: 0.8; 
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(3, 6, 16, 0.8);
+    border: 1px solid #0ff;
+    border-radius: 50%;
+    color: #0ff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+#scrollToTopBtn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+/* Grid Pulse Animation */
+.grid-pulse {
+  position: fixed;
+  left: var(--x-pos, 0);
+  top: var(--y-pos, 0);
+  width: var(--pulse-size, 16px);
+  height: var(--pulse-size, 16px);
+  background: transparent;
+  border: 1px solid var(--primary-color, #0ff); /* Using CSS variable */
+  border-radius: 2px;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px var(--glow-color, rgba(0, 255, 255, 0.7)));
+  transform: translate(-50%, -50%);
+  animation: gridPulse var(--pulse-duration, 3s) ease var(--pulse-delay, 0s) infinite;
+  color: var(--primary-color);
+  color: var(--glow);
+}
+
+@keyframes gridPulse {
+  0%, 100% { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.7); 
+  }
+  15%, 85% { 
+    opacity: 0.8; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: translate(-50%, -50%) scale(1.3); 
+  }
+}
