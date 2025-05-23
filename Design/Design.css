@@ -155,3 +155,7 @@ aside a:hover {
     100% { background: transparent; }
 }
 
+.UpdatedWireframe{
+  width: 400;
+  height: 250;
+}
