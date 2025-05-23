@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.querySelector('.design-index-toggle');//the button that shows the index/hides the index 
 
     // Build index. Here we find all h2 headings in the main content sections
-    document.querySelectorAll('main section h2').forEach(heading => {
+    document.querySelectorAll('main h2').forEach(heading => {
         if (!heading.id) heading.id = heading.textContent.toLowerCase().replace(/\s+/g, '-');//If heading doesn't have an ID, create one by making text lowercase
         // and Replacing spaces with hyphens. For instance: Goal Alignment" becomes "goal-alignment
         list.innerHTML += `<li><a href="#${heading.id}" class="design-index-link">${heading.textContent}</a></li>`;
