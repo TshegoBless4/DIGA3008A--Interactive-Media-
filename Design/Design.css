@@ -1,18 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500&family=Orbitron:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500&family=Orbitron:wght@400;600&display=swap");
 
-
-
-
-
-
-
-
-
-
-
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Orbitron", sans-serif;
   color: #0ff;
   text-transform: uppercase;
@@ -26,7 +17,6 @@ h1 {
   text-shadow: var(--glow);
   color: var(--primary-color);
 }
-
 
 h2 {
   font-size: 2rem;
@@ -63,10 +53,9 @@ section:hover {
 
 p {
   /* margin-bottom: 1rem; */
-  font-family: 'Chakra Petch',  sans-serif;
+  font-family: "Chakra Petch", sans-serif;
 
-  font-size: 1.1rem; 
-  
+  font-size: 1.1rem;
 
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -81,8 +70,6 @@ img {
   border: 1px solid #0ff;
 }
 
-
-
 ul li strong {
   display: block;
   margin-bottom: 0.6rem;
@@ -90,11 +77,81 @@ ul li strong {
   color: #f1b2b5;
 }
 
-
-
-
-
-
 aside a:hover {
   animation: glow-pulse 1.5s infinite;
 }
+
+/* Design Index Styles */
+.design-index {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(5, 10, 20, 0.9);
+    border: 1px solid #0ff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    z-index: 100;
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 200px;
+     opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+
+.design-index.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+.design-index-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.design-index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.design-index-link {
+    color: #f1b2b5;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+
+.design-index-link:hover {
+    color: #0ff;
+}
+
+.design-index-toggle {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    background: rgba(5, 10, 20, 0.9);
+    color: #0ff;
+    border: 1px solid #0ff;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.highlight {
+    animation: highlight 2s;
+}
+
+@keyframes highlight {
+    0% { background: rgba(0, 255, 255, 0.2); }
+    100% { background: transparent; }
+}
+
