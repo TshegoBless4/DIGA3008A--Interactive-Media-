@@ -106,7 +106,7 @@ article a:hover {
   border-bottom: 1px solid var(--primary-color);
 }
 
-/* ===== BUTTONS ===== */
+
 .back-to-top {
   display: inline-block;
   margin-top: 2rem;
@@ -219,3 +219,23 @@ article a:hover {
     max-width: calc(100% - 2rem);
   }
 }
+
+/* section{
+  
+  justify-content: center;
+  align-items: center;
+  
+  
+  max-width: 1000px;
+
+      
+
+    
+    align-items: center;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    position: relative;
+} */
+
+
+

@@ -109,3 +109,34 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Creating fullscreen overlay elements, the dark background overlay div
+    const overlay = document.createElement('div');
+    overlay.className = 'image-overlay';
+    //the image element that will show the enlarged photo
+    const overlayImg = document.createElement('img');
+    overlayImg.className = 'overlay-image';
+    
+    overlay.appendChild(overlayImg);
+    document.body.appendChild(overlay);//the image will be put inside the overlay div
+    
+    // Adding  click event to all images except the logo image 
+    const images = document.querySelectorAll('img:not(#logo-img)');
+    
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            overlayImg.src = this.src;
+            overlayImg.alt = this.alt || 'Enlarged image';
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    });
+    
+    // Close overlay when clicked. User can click anywhere on the overlay to close
+    overlay.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    });
+});
