@@ -28,6 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Change button text to match current state:
         // If hidden -> "Show Index"
         // If visible -> "Hide Index"
-        toggleBtn.textContent = index.classList.contains('hidden') ? 'Show Index' : 'Hide Index';
+        // toggleBtn.textContent = index.classList.contains('hidden') ? 'Show Index' : 'Hide Index';
     });
 });

@@ -1,10 +1,8 @@
-
-
 // Wait until the DOM is fully loaded before executing our code
 document.addEventListener('DOMContentLoaded', function() {
 
-    
-    // Search function: Get references to our search input and all blog articles
+    // SEARCH FUNCTIONALITY 
+    // Get references to our search input and all blog articles
     const blogSearch = document.getElementById('blogSearch');
     const articles = document.querySelectorAll('.section');
     const noResultsMsg = document.getElementById('noResultsMessage');
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         noResultsMsg.style.display = (searchTerm.length > 0 && visibleCount === 0) ? 'block' : 'none';
     });
 
-  
+    // NAVIGATION FUNCTION 
     // Smooth scrolling to the articles: Function to handle navigation to specific blog posts
     function navigateToBlog(targetId) {
         const targetArticle = document.getElementById(targetId);
@@ -61,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
 
-        // Temporarily highlight the target article
+        // Temporarily highlight the target article (reduced duration to 750ms)
         targetArticle.classList.add('blog-highlight');
         setTimeout(() => {
             targetArticle.classList.remove('blog-highlight');
-        }, 2000); // Remove highlight after 2 seconds
+        }, 750); // Reduced from 2000ms to 750ms for better UX
 
         // Close mobile menu/navigation if open
         const checkBox = document.getElementById('check');
@@ -76,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // SIDEBAR NAVIGATION 
     // Make all sidebar links use smooth scrolling
     document.querySelectorAll('aside a').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -85,10 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-        
-      
-
-    //  SEARCH BOX ENHANCEMENTS 
+    // SEARCH BOX ENHANCEMENTS 
     // Add focus effects to search box
     if (blogSearch) {
         blogSearch.addEventListener('focus', function() {
@@ -101,27 +97,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    //for  existing bacl to top functions 
-    // Make any existing back-to-top buttons work
+    //  BACK TO TOP BUTTONS 
+    // Handle all "Back to Top" buttons
     document.querySelectorAll('.back-to-top').forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            e.preventDefault(); // Prevent default anchor behavior
+            
+            // Get the ID from the button's href (like "#blog1")
+            const targetId = this.getAttribute('href');
+            
+            // If the href points to a specific ID
+            if (targetId && targetId.startsWith('#')) {
+                // Find the matching section on the page
+                const targetSection = document.querySelector(targetId);
+                
+                // If found, scroll to it smoothly
+                if (targetSection) {
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start' // Align to top of section
+                    });
+                }
+            }
         });
     });
 
-    
+    //  RESPONSIVE LAYOUT 
     // Adjust layout for different screen sizes
     function adjustForMobile() {
-        const filter = document.querySelector('.blog-filter');
-        if (!filter || !noResultsMsg) return;
+        const filter = document.querySelector('.blog-filter'); // Search input container
+        if (!filter || !noResultsMsg) return;  // Exit if elements don't exist (safety check)
         
+        // Check if viewport is mobile size (<= 768px)
         if (window.innerWidth <= 768) {
-            filter.style.padding = '0 1rem';
-            noResultsMsg.style.margin = '1rem';
+            filter.style.padding = '0 1rem'; // 
+        // Add horizontal padding to filter container
+            noResultsMsg.style.margin = '1rem'; //
+        // Adjust message margins for mobile
             noResultsMsg.style.maxWidth = 'calc(100% - 2rem)';
+
+            
         } else {
-            filter.style.padding = '';
+            filter.style.padding = '';    // Reset filter padding to default (empty string removes inline style)
             noResultsMsg.style.margin = '2rem auto';
             noResultsMsg.style.maxWidth = '600px';
         }
@@ -129,5 +146,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Run on resize and initial load
     window.addEventListener('resize', adjustForMobile);
-     adjustForMobile();
+    adjustForMobile();
 });

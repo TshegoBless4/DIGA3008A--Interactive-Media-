@@ -105,6 +105,7 @@ aside a:hover {
 .design-index.hidden {
     opacity: 0;
     visibility: hidden;
+
 }
 
 
@@ -137,13 +138,42 @@ aside a:hover {
 .design-index-toggle {
     position: fixed;
     left: 20px;
-    top: 20px;
+    /* top: 30px; */
     background: rgba(5, 10, 20, 0.9);
     color: #0ff;
     border: 1px solid #0ff;
-    padding: 5px 10px;
+    border-radius: 4px;
+    padding: 8px;
     cursor: pointer;
     z-index: 101;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    /* font-family:  'Orbitron', sans-serif; */
+}
+
+.design-index-toggle::before {
+    content: '›';
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.design-index.hidden + .design-index-toggle::before {
+    transform: rotate(0deg);
+}
+
+.design-index:not(.hidden) + .design-index-toggle::before {
+    transform: rotate(90deg);
+}
+
+.design-index-toggle:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 .highlight {
@@ -158,4 +188,9 @@ aside a:hover {
 .UpdatedWireframe{
   width: 400;
   height: 250;
+}
+
+cite{
+  font-weight: bolder;
+  color: #f1b2b5;
 }

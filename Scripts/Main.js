@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== Configuration =====
+ 
   const config = {
     gridSize: 60, // Must match CSS grid size
     pulseCount: [4, 8], // Min/Max pulses visible
