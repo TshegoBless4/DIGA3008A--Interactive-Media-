@@ -1,68 +1,81 @@
 
-// Only run on homepage (either index.html or root)
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
   document.addEventListener('DOMContentLoaded', function() {
-    
-    
-    const mainImage = document.querySelector('.intro-image');          // Main display image
-    const avatarContainer = document.querySelector('.avatar-options'); // Container for avatar options
-    const generateBtn = document.getElementById('generateAvatars');    // Generate new avatars button
+    // 1. Get DOM elements
+    const mainImage = document.querySelector('.intro-image');
+    const avatarContainer = document.querySelector('.avatar-options');
+    const generateBtn = document.getElementById('generateAvatars');
 
-    const savedAvatar = localStorage.getItem('selectedAvatar');
-    if (savedAvatar) {
-      mainImage.src = savedAvatar;  // Use saved avatar if available
+    // 2. Path to your original image 
+    const ORIGINAL_IMAGE = './Images/me.jpg';
+
+    // 3. Create avatar helper function
+    function createAvatar(imgSrc, altText) {
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.className = 'avatar';
+      img.alt = altText;
+      img.loading = 'lazy';
+      return img;
     }
 
-   
-    // ======================
-    function generateAvatars() {
-      // Clear container but keep original image
-      avatarContainer.innerHTML = `
-        <img src="./Images/me.jpg" class="avatar" alt="Original" loading="lazy">
-      `;
-
-      // Create 3 random robot avatars with performance optimizations
-      [1, 2, 3].forEach(() => {
-        // Generate unique URL with cache busting
-        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${Math.random().toString(36).slice(2)}&nocache=${Date.now()}`;
-        
-        // Create image element with optimizations
-        const img = new Image();  // Faster than createElement('img')
-        img.src = avatarUrl;
-        img.className = 'avatar';
-        img.alt = 'Random avatar';
-        img.loading = 'lazy';     // Lazy loading for better performance
-        img.crossOrigin = 'anonymous'; // Handle CORS properly
-        
-        avatarContainer.appendChild(img);
+    // 4. Display default avatars (including my origina;)
+    function showDefaultAvatars() {
+      // Clear container
+      avatarContainer.innerHTML = '';
+      
+      // Add your original image first
+      const originalImg = createAvatar(ORIGINAL_IMAGE, 'Original photo');
+      avatarContainer.appendChild(originalImg);
+      
+      // Add 3 default API avatars
+      ['default1', 'default2', 'default3'].forEach(seed => {
+        const url = `https://api.dicebear.com/7.x/bottts/svg?seed=${seed}`;
+        avatarContainer.appendChild(createAvatar(url, 'Random avatar'));
       });
+      
+      // Set original image as default display
+      const savedAvatar = localStorage.getItem('selectedAvatar');
+      mainImage.src = savedAvatar || ORIGINAL_IMAGE;
     }
 
-   
+    // 5. Generate new random avatars
+    function generateNewAvatars() {
+      // Visual feedback
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+      
+      // Clear container but keep original image
+      avatarContainer.innerHTML = '';
+      avatarContainer.appendChild(createAvatar(ORIGINAL_IMAGE, 'Original photo'));
+      
+      // Create 3 new random avatars
+      for (let i = 0; i < 3; i++) {
+        const randomSeed = Math.random().toString(36).slice(2, 10);
+        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${randomSeed}&nocache=${Date.now()}`;
+        avatarContainer.appendChild(createAvatar(avatarUrl, 'New avatar'));
+      }
+      
+      // Reset button
+      setTimeout(() => {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-random"></i> New Avatars';
+      }, 500);
+    }
+
+    // 6. Handle avatar selection
     function handleAvatarClick(e) {
-      // Only handle clicks on avatar images
       if (e.target.classList.contains('avatar') && e.target.src) {
         mainImage.src = e.target.src;
         localStorage.setItem('selectedAvatar', e.target.src);
       }
     }
 
-    // Use event delegation for better performance
-    document.body.addEventListener('click', handleAvatarClick);
-
-   
+    // 7. Set up event listeners
+    generateBtn.addEventListener('click', generateNewAvatars);
+    avatarContainer.addEventListener('click', handleAvatarClick);
     
-    // Generate avatars immediately on page load
-    generateAvatars(); 
-    
-    // Set up generate button click handler
-    generateBtn.addEventListener('click', function() {
-      // Add slight delay to prevent rapid clicking
-      generateBtn.disabled = true;
-      generateAvatars();
-      setTimeout(() => generateBtn.disabled = false, 300);
-    });
-
-    
+    // 8. Initialize - show avatars immediately
+    showDefaultAvatars();
   });
 }

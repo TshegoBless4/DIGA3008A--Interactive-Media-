@@ -366,10 +366,10 @@ button:disabled {
 } */
 
 /* Container layout */
-.avatar-options {
+/* .avatar-options {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
   margin: 20px 0;
-}
+} */
