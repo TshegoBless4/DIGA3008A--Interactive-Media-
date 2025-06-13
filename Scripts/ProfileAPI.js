@@ -1,96 +1,71 @@
-/**
- * AVATAR GENERATOR MODULE
- * - Handles avatar generation and selection
- * - Caches selected avatar in localStorage
- * - Uses DiceBear API for random avatars
- */
-
-// 1. Only run on homepage (index.html or root)
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
   document.addEventListener('DOMContentLoaded', function() {
-    
-    // 2. DOM Elements
+    // DOM Elements
     const mainImage = document.querySelector('.intro-image');
     const avatarContainer = document.querySelector('.avatar-options');
     const generateBtn = document.getElementById('generateAvatars');
-    
-    // 3. Cache System 
-    const AVATAR_CACHE_KEY = 'selectedAvatar';
-    const CACHE_EXPIRY_DAYS = 7;
-    
-    // 4. Load Saved Avatar 
-    function loadSavedAvatar() {
-      const savedAvatar = localStorage.getItem(AVATAR_CACHE_KEY);
+
+    // 1. Function to create an avatar image element
+    function createAvatarElement(src, alt) {
+      const img = document.createElement('img');
+      img.src = src;
+      img.className = 'avatar';
+      img.alt = alt;
+      img.loading = 'lazy';
+      return img;
+    }
+
+    // 2. IMMEDIATELY DISPLAY DEFAULT AVATARS ON LOAD
+    function displayInitialAvatars() {
+      // Clear container
+      avatarContainer.innerHTML = '';
+      
+      // Add original avatar
+      avatarContainer.appendChild(createAvatarElement('./Images/me.jpg', 'Original'));
+      
+      // Add 3 default API avatars
+      ['default1', 'default2', 'default3'].forEach(seed => {
+        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${seed}`;
+        avatarContainer.appendChild(createAvatarElement(avatarUrl, 'Random avatar'));
+      });
+      
+      // Load saved avatar if exists
+      const savedAvatar = localStorage.getItem('selectedAvatar');
       if (savedAvatar) {
         mainImage.src = savedAvatar;
-        return true; // Found cached avatar
+      } else {
+        // Set first random avatar as default
+        mainImage.src = "https://api.dicebear.com/7.x/bottts/svg?seed=default1";
       }
-      return false; // No cache
     }
-    
-    // 5. Avatar Generation 
+
+    // 3. GENERATE NEW RANDOM AVATARS (FIXED)
     function generateAvatars() {
-      // Show loading state
-      avatarContainer.innerHTML = '<div class="loading-spinner"></div>';
-      generateBtn.disabled = true;
+      // Clear container but keep original image
+      avatarContainer.innerHTML = '';
+      avatarContainer.appendChild(createAvatarElement('./Images/me.jpg', 'Original'));
       
-      // Always include original avatar
-      const avatarsHTML = `<img src="./Images/me.jpg" class="avatar" alt="Original">`;
-      
-      // Generate 3 random avatars with cache-busting
-      const avatarPromises = [1, 2, 3].map(() => {
-        const cacheBuster = Date.now(); // Prevent browser caching
-        return `https://api.dicebear.com/7.x/bottts/svg?seed=${Math.random().toString(36).slice(2)}&_=${cacheBuster}`;
-      });
-      
-      // Preload images before showing
-      Promise.all(avatarPromises.map(preloadImage))
-        .then(() => {
-          avatarContainer.innerHTML = avatarsHTML;
-          avatarPromises.forEach(url => {
-            const img = document.createElement('img');
-            img.src = url;
-            img.className = 'avatar';
-            img.alt = 'Random avatar';
-            img.loading = 'lazy'; // Lazy loading
-            avatarContainer.appendChild(img);
-          });
-        })
-        .catch(error => {
-          console.error("Avatar load failed:", error);
-          avatarContainer.innerHTML = avatarsHTML + '<p>Failed to load new avatars</p>';
-        })
-        .finally(() => {
-          generateBtn.disabled = false;
-        });
-    }
-    
-    // 6. Image Preloader 
-    function preloadImage(url) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.src = url;
-        img.onload = resolve;
-        img.onerror = reject;
-      });
-    }
-    
-    // 7. Event Handlers 
-    document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('avatar')) {
-        mainImage.src = e.target.src;
-        localStorage.setItem(AVATAR_CACHE_KEY, e.target.src);
+      // Create 3 new random avatars
+      for (let i = 0; i < 3; i++) {
+        const randomSeed = Math.random().toString(36).substring(2, 10);
+        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${randomSeed}&nocache=${Date.now()}`;
+        
+        const img = createAvatarElement(avatarUrl, 'Random avatar');
+        avatarContainer.appendChild(img);
       }
-    });
-    
-    generateBtn.addEventListener('click', function() {
-      // Throttle button clicks (300ms cooldown)
-      if (!generateBtn.disabled) generateAvatars(); 
-    });
-    
-    // 8. Initialization
-    if (!loadSavedAvatar()) {
-      generateAvatars(); // Show random avatars if no cache
     }
+
+    // 4. CLICK HANDLER
+    function handleAvatarClick(e) {
+      if (e.target.classList.contains('avatar') && e.target.src) {
+        mainImage.src = e.target.src;
+        localStorage.setItem('selectedAvatar', e.target.src);
+      }
+    }
+
+    // INITIAL SETUP
+    displayInitialAvatars();
+    document.addEventListener('click', handleAvatarClick);
+    generateBtn.addEventListener('click', generateAvatars);
   });
 }
