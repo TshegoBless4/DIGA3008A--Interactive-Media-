@@ -17,9 +17,10 @@
       src="https://kit.fontawesome.com/76fff40ec6.js"
       crossorigin="anonymous"
     ></script>
-  
   <!-- <script src="../Main.js"></script> -->
   <script src="../Scripts/Main.js"></script>
+  <script src="../Porfolio/PortfolioAPI.js"></script>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
@@ -46,49 +47,123 @@
           <li>
             <a href="../Porfolio/Portfolio.html" class="active">Portfolio</a>
           </li>
-          <li><a href="../Essay/Essay.html">Essay</a></li>
+          <!-- <li><a href="../Essay/Essay.html">Essay</a></li> -->
+          <li><a href="../Essay/EssayIndex.html">Essay</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <h1 >PORTFOLIO</h1>
-      <section>
-        <div>
-          <img
-            src="../Images/Time's Out cover image.png"
-            alt="This is a cover image of Time's Out game"
-          />
-          <article>
-            <h2>Time's Out!</h2>
-            <p>
-              This is a trivia game based on general knowledge. Users are only
-              given 10 seconds to answer each question.
-            </p>
-            <a href="https://tshegobless.itch.io/times-out">Find on itch.io</a>
-          </article>
-        </div>
-      </section>
 
-      <section>
-        <div>
-          <img
-            src="../Images/Ted's Cave cover image.png"
-            alt="This is a cover image  of Ted's Cave Escape game"
-          />
-          <article>
-            <h2>Ted's Cave Escape</h2>
-            <p>
-              This is a platformer based prototype game where the player has to
-              escape the cave but of course, there are always challenges to get
-              to the final destination and you have to overcome that.
-            </p>
-            <a href="https://tshegobless.itch.io/teds-cave-escape"
-              >Find on itch.io</a
-            >
-          </article>
-        </div>
-      </section>
+      <section class="nasa-section">
+  <h2 class="nasa-title">Today's Space Image</h2>
+  <div class="nasa-image-container">
+    <img src="" alt="NASA Astronomy Picture of the Day" class="nasa-image" id="nasa-image">
+  </div>
+  <div class="nasa-caption">
+    <h3 id="nasa-image-title"></h3>
+    <p id="nasa-image-explanation"></p>
+    <a href="#" class="nasa-link" id="nasa-image-link" target="_blank">View Full Resolution</a>
+  </div>
+</section>
+
+  
+  
+      <h2>Games</h2>
+<div class="games-grid">
+  <!-- Game 1 -->
+  <div class="game-card-compact">
+    <img src="../Images/Time's Out cover image.png" 
+         alt="Time's Out game" 
+         class="game-img-compact">
+    <div class="game-content-compact">
+      <h3>Time's Out!</h3>
+      <p>
+        This is a trivia game based on general knowledge. Users are only
+        given 10 seconds to answer each question.
+      </p>
+      <a href="https://tshegobless.itch.io/times-out" 
+         class="game-link-compact">Find on itch.io</a>
+    </div>
+  </div>
+
+  
+  <div class="game-card-compact">
+    <img src="../Images/Ted's Cave cover image.png" 
+         alt="Ted's Cave Escape game" 
+         class="game-img-compact">
+    <div class="game-content-compact">
+      <h3>Ted's Cave Escape</h3>
+      <p>
+        This is a platformer based prototype game where the player has to
+        escape the cave but of course, there are always challenges to get
+        to the final destination.
+      </p>
+      <a href="https://tshegobless.itch.io/teds-cave-escape"
+         class="game-link-compact">Find on itch.io</a>
+    </div>
+  </div>
+</div>
+
+      <h2>Drawings</h2>
+<div class="drawings-container">
+  <div class="drawing-thumbnail">
+    <img src="../Images/BeautifulGirl_2.jpg" alt="Graphite drawing of a person with a scarf">
+    <div class="drawing-caption">Portrait with Scarf</div>
+  </div>
+  
+  <div class="drawing-thumbnail">
+    <img src="../Images/ChildCry.jpg" alt="Graphite drawing of a sad baby">
+    <div class="drawing-caption">Crying Child</div>
+  </div>
+
+ 
+  <div class="drawing-thumbnail">
+    <img src="../Images/Hiding.jpg" alt="Graphite drawing of a person with a hijab hiding her face">
+    <div class="drawing-caption">Portrait of a Muslim Girl</div>
+  </div>
+
+   <div class="drawing-thumbnail">
+    <img src="../Images/PlayfulChild.jpg" alt="Graphite drawing of a boy blowing Bubbles">
+    <div class="drawing-caption">Blowing Bubbles</div>
+  </div>
+
+   <div class="drawing-thumbnail">
+    <img src="../Images/Prayer.jpg" alt="Graphite drawing of a a man praying">
+    <div class="drawing-caption">Prayer</div>
+  </div>
+
+  
+    <div class="drawing-thumbnail">
+    <img src="../Images/LoneWolf.jpg" alt="Graphite drawing of a wolf">
+    <div class="drawing-caption">Lone Wolf</div>
+  </div>
+
+
+  <div class="drawing-thumbnail">
+    <img src="../Images/Detective.png" alt="Digital drawing of a silhouetted man with a cup of coffee">
+    <div class="drawing-caption">Detective</div>
+  </div>
+
+  <div class="drawing-thumbnail">
+    <img src="../Images/DgitalPortrait.png" alt="Digital Portrait of a girl in a cap">
+    <div class="drawing-caption">Yellow Portrayal</div>
+  </div>
+
+  <div class="drawing-thumbnail">
+    <img src="../Images/shootingenemyturnaround.jpg" alt="Digital drawing showing a turnaround of a Samurai character">
+    <div class="drawing-caption">Samurai</div>
+  </div>
+
+
+
+
+
+
+
+
+
 
     </main>
     <footer>

@@ -20,6 +20,8 @@
     <script src="./Scripts/index.js"></script>
     <script src="./Scripts/Main.js"></script>
     <script src="Main.js"></script>
+    <script src="./Scripts/IndexAPI.js"></script>
+    <script src="./Scripts/ProfileAPI.js"></script>
 </head>
 <body>
     <header>
@@ -37,7 +39,11 @@
           <li><a href="BlogPages/blogMain.html">Blogs</a></li>
           <li><a href="Design/Design.html">Design</a></li>
           <li><a href="Porfolio/Portfolio.html">Portfolio</a></li>
-          <li><a href="Essay/Essay.html">Essay</a></li>
+          <!-- <li><a href="Essay/Essay.html">Essay</a></li> -->
+             <!-- <li><a href="../Essay/EssayIndex.html">Essay</a></li> -->
+              <li><a href="Essay/EssayIndex.html">Essay</a></li>
+
+
         </ul>
       </nav>
     </header>
@@ -48,6 +54,14 @@
         <p class="tagline">Game Designer | Interactive Media Developer | Aspiring Creative Technologist</p>
         <img class="intro-image" src="./Images/me.jpg" alt="Animated picture of myself" width="360" height="241">
         
+        
+ <div class="avatar-selector">
+  <h3><i class="fas fa-robot"></i> Choose Your Avatar</h3>
+  <div class="avatar-options"></div>
+  <button id="generateAvatars" class="cyber-button">
+    <i class="fas fa-random"></i> New Avatars
+  </button>
+</div>
       </section>
 
       <section class="profile-section">
@@ -103,6 +117,16 @@
       </section>
     </main>
 
+    
+
+    <div class="cyber-quote">
+  <h3>Hacker Wisdom</h3>
+  <p id="cyber-quote-text">"The street finds its own uses for things."</p>
+  <p id="cyber-quote-author">- William Gibson</p>
+  <button id="new-quote-btn" class="cyber-button">Get New Quote</button>
+</div>
+
+
     <footer>
       <div class="footer-content">
         <div class="social-links">
@@ -124,4 +148,3 @@
     </footer>
  </body>
 </html>
-    

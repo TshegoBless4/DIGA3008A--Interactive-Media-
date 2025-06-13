@@ -37,19 +37,6 @@ main {
   gap: 2rem;
 }
 
-section {
-  background-color: rgba(5, 10, 20, 0.8);
-  padding: 2rem;
-  border: 1px solid #0ff;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-}
 
 p {
   /* margin-bottom: 1rem; */
