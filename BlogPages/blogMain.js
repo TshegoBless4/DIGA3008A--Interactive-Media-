@@ -29,12 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add highlight effect for matches (only if search term is > 2 characters)
             if (isVisible && searchTerm.length > 2) {
-                article.style.background = 'rgba(0, 255, 255, 0.2)';
-                article.style.boxShadow = '0 0 10px rgba(0, 255, 255, 0.5)';
+                article.classList.add('blog-highlight');
             } else {
                 // Remove highlight if no search term or doesn't match
-                article.style.background = '';
-                article.style.boxShadow = '';
+                article.classList.remove('blog-highlight');
             }
         });
 
@@ -97,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    //  BACK TO TOP BUTTONS 
+    // BACK TO TOP BUTTONS 
     // Handle all "Back to Top" buttons
     document.querySelectorAll('.back-to-top').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -122,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    //  RESPONSIVE LAYOUT 
+    // RESPONSIVE LAYOUT 
     // Adjust layout for different screen sizes
     function adjustForMobile() {
         const filter = document.querySelector('.blog-filter'); // Search input container
@@ -130,15 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Check if viewport is mobile size (<= 768px)
         if (window.innerWidth <= 768) {
-            filter.style.padding = '0 1rem'; // 
-        // Add horizontal padding to filter container
-            noResultsMsg.style.margin = '1rem'; //
-        // Adjust message margins for mobile
+            filter.style.padding = '0 1rem'; // Add horizontal padding to filter container
+            noResultsMsg.style.margin = '1rem'; // Adjust message margins for mobile
             noResultsMsg.style.maxWidth = 'calc(100% - 2rem)';
-
-            
         } else {
-            filter.style.padding = '';    // Reset filter padding to default (empty string removes inline style)
+            filter.style.padding = '';    // Reset filter padding to default
             noResultsMsg.style.margin = '2rem auto';
             noResultsMsg.style.maxWidth = '600px';
         }
