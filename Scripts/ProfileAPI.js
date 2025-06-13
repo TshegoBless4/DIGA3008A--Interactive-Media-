@@ -1,95 +1,95 @@
 
-
-// 1. Only run on homepage (index.html or root)
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
   document.addEventListener('DOMContentLoaded', function() {
-    
-    // 2. DOM Elements
+    // 1. Get DOM elements
     const mainImage = document.querySelector('.intro-image');
     const avatarContainer = document.querySelector('.avatar-options');
     const generateBtn = document.getElementById('generateAvatars');
-    
-    // 3. Cache System
-    const AVATAR_CACHE_KEY = 'selectedAvatar';
-    
-    // 4. Function to create avatar element
-    function createAvatarElement(src, alt) {
+
+    // 2. Create avatar element helper
+    function createAvatar(imgSrc, altText) {
       const img = document.createElement('img');
-      img.src = src;
+      img.src = imgSrc;
       img.className = 'avatar';
-      img.alt = alt || 'Random avatar';
+      img.alt = altText;
       img.loading = 'lazy';
       return img;
     }
-    
-    // 5. Display default avatars immediately
-    function displayDefaultAvatars() {
+
+    // 3. Display DEFAULT avatars immediately
+    function showDefaultAvatars() {
       // Clear container
       avatarContainer.innerHTML = '';
       
       // Add original avatar
-      avatarContainer.appendChild(createAvatarElement('./Images/me.jpg', 'Original'));
+      avatarContainer.appendChild(createAvatar('./Images/me.jpg', 'Original'));
       
-      // Add 3 default API avatars (these will show immediately)
-      const defaultAvatars = [
+      // Add 3 default API avatars (show immediately)
+      const defaults = [
         'https://api.dicebear.com/7.x/bottts/svg?seed=default1',
-        'https://api.dicebear.com/7.x/bottts/svg?seed=default2',
+        'https://api.dicebear.com/7.x/bottts/svg?seed=default2', 
         'https://api.dicebear.com/7.x/bottts/svg?seed=default3'
       ];
       
-      defaultAvatars.forEach(url => {
-        avatarContainer.appendChild(createAvatarElement(url));
+      defaults.forEach(url => {
+        avatarContainer.appendChild(createAvatar(url, 'Default avatar'));
       });
-      
-      // Set first avatar as default if none saved
+
+      // Set default main image if none saved
       if (!loadSavedAvatar()) {
-        mainImage.src = defaultAvatars[0];
+        mainImage.src = defaults[0];
       }
     }
-    
-    // 6. Load Saved Avatar
+
+    // 4. Load saved avatar from cache
     function loadSavedAvatar() {
-      const savedAvatar = localStorage.getItem(AVATAR_CACHE_KEY);
-      if (savedAvatar) {
-        mainImage.src = savedAvatar;
+      const saved = localStorage.getItem('selectedAvatar');
+      if (saved) {
+        mainImage.src = saved;
         return true;
       }
       return false;
     }
-    
-    // 7. Generate new random avatars (original functionality)
-    function generateAvatars() {
-      // Show loading state
-      avatarContainer.innerHTML = '<div class="loading-spinner"></div>';
+
+    // 5. GENERATE NEW RANDOM AVATARS (button click)
+    function generateNewAvatars() {
+      // Visual feedback
       generateBtn.disabled = true;
+      generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
       
-      // Keep original avatar
-      avatarContainer.appendChild(createAvatarElement('./Images/me.jpg', 'Original'));
+      // Clear existing (keep original)
+      avatarContainer.innerHTML = '';
+      avatarContainer.appendChild(createAvatar('./Images/me.jpg', 'Original'));
       
-      // Generate 3 new random avatars
-      [1, 2, 3].forEach(() => {
-        const randomSeed = Math.random().toString(36).slice(2);
-        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${randomSeed}&_=${Date.now()}`;
-        const img = createAvatarElement(avatarUrl);
+      // Create 3 new random avatars
+      for (let i = 0; i < 3; i++) {
+        const randomSeed = Math.random().toString(36).slice(2, 10);
+        const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${randomSeed}&nocache=${Date.now()}`;
+        
+        const img = createAvatar(avatarUrl, 'Random avatar');
         avatarContainer.appendChild(img);
-      });
+      }
       
-      generateBtn.disabled = false;
+      // Reset button
+      setTimeout(() => {
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-random"></i> New Avatars';
+      }, 500);
     }
-    
-    // 8. Event Handlers
-    document.addEventListener('click', function(e) {
+
+    // 6. Handle avatar selection
+    function handleAvatarClick(e) {
       if (e.target.classList.contains('avatar') && e.target.src) {
         mainImage.src = e.target.src;
-        localStorage.setItem(AVATAR_CACHE_KEY, e.target.src);
+        localStorage.setItem('selectedAvatar', e.target.src);
       }
-    });
+    }
+
+    // 7. Set up event listeners
+    generateBtn.addEventListener('click', generateNewAvatars);
+    avatarContainer.addEventListener('click', handleAvatarClick);
     
-    generateBtn.addEventListener('click', function() {
-      if (!generateBtn.disabled) generateAvatars();
-    });
-    
-    // 9. Initialization
-    displayDefaultAvatars(); // Show avatars immediately on load
+    // 8. Initialize
+    showDefaultAvatars();
   });
 }
